@@ -23,7 +23,7 @@ public struct SouhoolaLabel: View {
     public var body: some View {
         Text(text)
             .font(font ?? theme.bodyFont)
-            .foregroundColor(textColor ?? theme.mainColor)
+            .foregroundColor(textColor ?? theme.primaryColor)
     }
 }
 

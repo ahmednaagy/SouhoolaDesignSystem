@@ -9,8 +9,8 @@ final class SouhoolaLabelTests: XCTestCase {
     }
 
     func testLabelCustomization() {
-        let label = SouhoolaLabel(text: "Custom Label", font: SouhoolaTypography.headline, textColor: SouhoolaColors.mainPurple)
-        XCTAssertEqual(label.font, SouhoolaTypography.headline)
-        XCTAssertEqual(label.textColor, SouhoolaColors.mainPurple)
+        let label = SouhoolaLabel(text: "Custom Label", font: SouhoolaTypography.bold, textColor: SouhoolaColors.souhoolaMainPurple)
+        XCTAssertEqual(label.font, SouhoolaTypography.bold)
+        XCTAssertEqual(label.textColor, SouhoolaColors.souhoolaMainPurple)
     }
 }

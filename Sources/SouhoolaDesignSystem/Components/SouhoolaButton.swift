@@ -4,9 +4,10 @@ import SwiftUI
 public struct SouhoolaButton: View {
     @Environment(\.souhoolaTheme) var theme: SouhoolaTheme
     public var title: String
-    public var action: () -> Void
     public var style: ButtonStyle
     public var isDisabled: Bool = false
+    public var font: Font?
+    public var action: () -> Void
 
     /// The style of the button.
     public enum ButtonStyle {
@@ -24,13 +25,15 @@ public struct SouhoolaButton: View {
     ///   - isDisabled: A boolean to indicate if the button is disabled. Defaults to `false`.
     public init(
         title: String,
-        action: @escaping () -> Void,
         style: ButtonStyle = .primary,
-        isDisabled: Bool = false
+        isDisabled: Bool = false,
+        font: Font? = nil,
+        action: @escaping () -> Void
     ) {
         self.title = title
         self.action = action
         self.style = style
+        self.font = font
         self.isDisabled = isDisabled
         FontRegistrar.registerFonts()
     }
@@ -38,7 +41,7 @@ public struct SouhoolaButton: View {
     private var backgroundColor: Color {
         switch style {
         case .primary:
-            return isDisabled ? theme.textFieldBackgroundColor : theme.mainColor
+            return isDisabled ? theme.textFieldBackgroundColor : theme.primaryColor
         case .secondary:
             return Color.clear
         }
@@ -49,7 +52,7 @@ public struct SouhoolaButton: View {
         case .primary:
             return theme.buttonTextColor
         case .secondary:
-            return theme.mainColor
+            return theme.primaryColor
         }
     }
 
@@ -67,26 +70,30 @@ public struct SouhoolaButton: View {
     public var body: some View {
         Button(action: action) {
             Text(title)
-                .font(theme.headlineFont)
-                .padding(theme.mediumSpacing)
+                .font(font ?? theme.headlineFont)
+                .padding(.vertical, theme.mediumSpacing)
+                .frame(maxWidth: .infinity)
                 .background(backgroundColor)
                 .foregroundColor(textColor)
                 .cornerRadius(theme.smallSpacing)
                 .overlay(border)
         }
         .disabled(isDisabled)
-        .drawingGroup() // Optimize drawing performance
     }
 }
 
 
-
-
 #Preview {
     VStack(spacing: 16) {
-        SouhoolaButton(title: "Delete", action: {}, style: .primary)
-        SouhoolaButton(title: "Keep", action: {}, style: .secondary)
-        SouhoolaButton(title: "Pay now", action: {}, style: .primary, isDisabled: true)
+        SouhoolaButton(title: "Delete", style: .primary) {
+
+        }
+        SouhoolaButton(title: "Keep", style: .secondary) {
+
+        }
+        SouhoolaButton(title: "Pay now", style: .primary, isDisabled: true) {
+            
+        }
     }
     .theme(DefaultSouhoolaTheme())
     .padding()

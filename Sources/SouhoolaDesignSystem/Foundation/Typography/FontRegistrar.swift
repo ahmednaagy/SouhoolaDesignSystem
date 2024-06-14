@@ -9,7 +9,10 @@ public struct FontRegistrar {
         fontsRegistered = true
 
         let fonts = [
-            "Tiny5-Regular"
+            "Almarai-Bold",
+            "Almarai-ExtraBold",
+            "Almarai-Light",
+            "Almarai-Regular"
         ]
 
         fonts.forEach { fontName in
