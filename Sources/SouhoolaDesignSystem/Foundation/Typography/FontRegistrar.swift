@@ -2,7 +2,12 @@ import SwiftUI
 import UIKit
 
 public struct FontRegistrar {
+    private static var fontsRegistered = false
+
     public static func registerFonts() {
+        guard !fontsRegistered else { return }
+        fontsRegistered = true
+
         let fonts = [
             "Tiny5-Regular"
         ]
@@ -15,10 +20,11 @@ public struct FontRegistrar {
             }
 
             var error: Unmanaged<CFError>?
-            CTFontManagerRegisterGraphicsFont(font, &error)
-            if let error = error {
-                let errorDescription = CFErrorCopyDescription(error.takeUnretainedValue())
-                print("Failed to register font: \(fontName), error: \(errorDescription ?? "unknown error" as CFString)")
+            if !CTFontManagerRegisterGraphicsFont(font, &error) {
+                if let error = error {
+                    let errorDescription = CFErrorCopyDescription(error.takeUnretainedValue())
+                    print("Failed to register font: \(fontName), error: \(errorDescription ?? "unknown error" as CFString)")
+                }
             }
         }
     }

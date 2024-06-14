@@ -2,6 +2,8 @@ import SwiftUI
 
 /// A customizable button for the Souhoola design system.
 public struct SouhoolaButton: View {
+
+    @Environment(\.souhoolaTheme) var theme: SouhoolaTheme
     public var title: String
     public var action: () -> Void
     
@@ -12,22 +14,26 @@ public struct SouhoolaButton: View {
     public init(title: String, action: @escaping () -> Void) {
         self.title = title
         self.action = action
+        FontRegistrar.registerFonts() // Register the fonts when the button is used
     }
     
     public var body: some View {
         Button(action: action) {
             Text(title)
-                .font(SouhoolaTypography.headline)
-                .padding(SouhoolaSpacing.medium)
-                .background(SouhoolaColors.primary)
+                .font(theme.headlineFont)
+                .padding(theme.mediumSpacing)
+                .background(theme.primaryColor)
                 .foregroundColor(.white)
-                .cornerRadius(SouhoolaSpacing.small)
+                .cornerRadius(theme.smallSpacing)
         }
-        .registerFonts()
     }
 }
 
 
 #Preview {
     SouhoolaButton(title: "Press Me", action: {})
+        .theme(DefaultSouhoolaTheme())
+        .padding()
+        .background(SouhoolaColors.background)
+        .previewLayout(.sizeThatFits)
 }

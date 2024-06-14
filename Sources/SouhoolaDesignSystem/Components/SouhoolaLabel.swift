@@ -2,6 +2,8 @@ import SwiftUI
 
 /// A customizable label for the Souhoola design system.
 public struct SouhoolaLabel: View {
+
+    @Environment(\.souhoolaTheme) var theme: SouhoolaTheme
     public var text: String
     public var font: Font
     public var textColor: Color
@@ -15,16 +17,20 @@ public struct SouhoolaLabel: View {
         self.text = text
         self.font = font
         self.textColor = textColor
+        FontRegistrar.registerFonts()
     }
 
     public var body: some View {
         Text(text)
-            .font(font)
-            .foregroundColor(textColor)
+            .font(theme.bodyFont)
+            .foregroundColor(theme.foregroundColor)
     }
 }
 
 #Preview {
     SouhoolaLabel(text: "Sample Label")
+        .theme(DefaultSouhoolaTheme())
         .padding()
+        .background(SouhoolaColors.background)
+        .previewLayout(.sizeThatFits)
 }
