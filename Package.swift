@@ -14,6 +14,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
+//        .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI.git", from: "2.0.0")
     ],
     targets: [
         .target(
@@ -22,7 +23,9 @@ let package = Package(
         path: "Sources",
         resources: [
             .process("SouhoolaDesignSystem/Resources/Colors/Colors.xcassets"),
-            .process("SouhoolaDesignSystem/Resources/Fonts")
+            .process("SouhoolaDesignSystem/Resources/Fonts"),
+            .process("SouhoolaDesignSystem/Resources/Media"),
+            .process("SouhoolaDesignSystem/Resources/GIFs")
         ]),
         .testTarget(
             name: "SouhoolaDesignSystemTests",
