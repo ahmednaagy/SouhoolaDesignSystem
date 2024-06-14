@@ -3,13 +3,13 @@ import SwiftUI
 struct SouhoolaButtonTestView: View {
     var body: some View {
         VStack(spacing: SouhoolaSpacing.large) {
-            
-            SouhoolaButton(title: "Primary Button", action: {
-                print("Button pressed")
-            })
-            .padding()
+            SouhoolaButton(title: "Test", action: {}, style: .primary)
+            SouhoolaButton(title: "Test", action: {}, style: .secondary)
+            SouhoolaButton(title: "Test", action: {}, style: .primary, isDisabled: true)
         }
-        .background(SouhoolaColors.background)
+        .theme(DefaultSouhoolaTheme())
+        .padding()
+        .background(SouhoolaColors.white)
         .previewLayout(.sizeThatFits)
     }
 }
