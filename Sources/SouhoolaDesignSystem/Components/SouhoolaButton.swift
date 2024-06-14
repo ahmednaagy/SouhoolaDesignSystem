@@ -90,6 +90,6 @@ public struct SouhoolaButton: View {
     }
     .theme(DefaultSouhoolaTheme())
     .padding()
-    .background(SouhoolaColors.white)
+    .background(SouhoolaColors.souhoolaWhite)
     .previewLayout(.sizeThatFits)
 }

@@ -9,7 +9,7 @@ struct SouhoolaButtonTestView: View {
         }
         .theme(DefaultSouhoolaTheme())
         .padding()
-        .background(SouhoolaColors.white)
+        .background(SouhoolaColors.souhoolaWhite)
         .previewLayout(.sizeThatFits)
     }
 }

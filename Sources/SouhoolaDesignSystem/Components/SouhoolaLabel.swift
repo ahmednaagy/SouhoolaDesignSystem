@@ -31,6 +31,6 @@ public struct SouhoolaLabel: View {
     SouhoolaLabel(text: "Sample Label")
         .theme(DefaultSouhoolaTheme())
         .padding()
-        .background(SouhoolaColors.white)
+        .background(SouhoolaColors.souhoolaWhite)
         .previewLayout(.sizeThatFits)
 }
