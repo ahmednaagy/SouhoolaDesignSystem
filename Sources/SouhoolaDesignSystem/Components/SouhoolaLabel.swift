@@ -12,7 +12,7 @@ public struct SouhoolaLabel: View {
     /// - Parameters:
     ///   - text: The text to display in the label.
     ///   - font: The font to use for the label's text. If not provided, it uses the theme's bodyFont.
-    ///   - textColor: The color to use for the label's text. If not provided, it uses the theme's primaryColor.
+    ///   - textColor: The color to use for the label's text. If not provided, it uses the theme's main color.
     public init(text: String, font: Font? = nil, textColor: Color? = nil) {
         self.text = text
         self.font = font
@@ -23,7 +23,7 @@ public struct SouhoolaLabel: View {
     public var body: some View {
         Text(text)
             .font(font ?? theme.bodyFont)
-            .foregroundColor(textColor ?? theme.primaryColor)
+            .foregroundColor(textColor ?? theme.mainColor)
     }
 }
 

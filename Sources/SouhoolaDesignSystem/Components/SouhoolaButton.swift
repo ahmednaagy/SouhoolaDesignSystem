@@ -38,7 +38,7 @@ public struct SouhoolaButton: View {
     private var backgroundColor: Color {
         switch style {
         case .primary:
-            return isDisabled ? theme.textFieldBackgroundColor : theme.primaryColor
+            return isDisabled ? theme.textFieldBackgroundColor : theme.mainColor
         case .secondary:
             return Color.clear
         }
@@ -49,7 +49,7 @@ public struct SouhoolaButton: View {
         case .primary:
             return theme.buttonTextColor
         case .secondary:
-            return theme.primaryColor
+            return theme.mainColor
         }
     }
 

@@ -84,7 +84,7 @@ To define a custom theme, conform to the `SouhoolaTheme` protocol:
 import SwiftUI
 
 struct CustomTheme: SouhoolaTheme {
-    var primaryColor: Color = Color.blue
+    var mainColor: Color = Color.blue
     var secondaryColor: Color = Color.green
     var backgroundColor: Color = Color.white
     var foregroundColor: Color = Color.black

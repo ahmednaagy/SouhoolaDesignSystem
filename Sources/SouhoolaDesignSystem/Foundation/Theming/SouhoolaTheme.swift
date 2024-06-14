@@ -1,7 +1,7 @@
 import SwiftUI
 
 public protocol SouhoolaTheme {
-    var primaryColor: Color { get }
+    var mainColor: Color { get }
     var secondaryColor: Color { get }
     var backgroundColor: Color { get }
     var headingColor: Color { get }
@@ -16,7 +16,7 @@ public protocol SouhoolaTheme {
 }
 
 public struct DefaultSouhoolaTheme: SouhoolaTheme {
-    public var primaryColor: Color = SouhoolaColors.souhoolaMainPurple
+    public var mainColor: Color = SouhoolaColors.souhoolaMainPurple
     public var secondaryColor: Color = SouhoolaColors.souhoolaMediumGrey
     public var backgroundColor: Color = SouhoolaColors.souhoolaWhite
     public var headingColor: Color = SouhoolaColors.souhoolaBlack
