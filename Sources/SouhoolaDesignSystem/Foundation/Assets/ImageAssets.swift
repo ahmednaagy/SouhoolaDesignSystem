@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-public enum SouhoolaImageAssets: String {
-    case delete
-    case success = "image_success"
-    case error = "image_error"
-    case warning = "image_warning"
+// No need for the enum as of Xcode 15 as it's already being generated, but it's these just in case :]
 
-    public var image: Image {
-        return Image(self.rawValue, bundle: .module)
-    }
-}
+//public enum SouhoolaImageAssets: String {
+//    case delete
+//    case success
+//    case error
+//    case warning
+//
+//    public var image: Image {
+//        return Image(self.rawValue, bundle: .module)
+//    }
+//}
 
