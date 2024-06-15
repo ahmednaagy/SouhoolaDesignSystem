@@ -60,26 +60,29 @@ public struct SouhoolaAlert: View {
                     if let image = image {
                         image
                             .resizable()
-                            .frame(width: 50, height: 50)
+                            .frame(width: 80, height: 80)
                             .padding(20)
                     }
 
-                    SouhoolaLabel(text: title, font: SouhoolaTypography.light, textColor: SouhoolaColors.souhoolaBlack)
+                    SouhoolaLabel(text: title, font: SouhoolaTypography.bold, textColor: SouhoolaColors.souhoolaBlack)
+                        .multilineTextAlignment(.center)
 
                     if let message = message {
                         SouhoolaLabel(text: message, font: SouhoolaTypography.body, textColor: SouhoolaColors.souhoolaMediumDarkGray)
                             .multilineTextAlignment(.center)
-                            .padding(16)
                     }
                     
                     SouhoolaButton(title: primaryButtonTitle, style: .primary, font: SouhoolaTypography.body, action: primaryButtonAction)
-                        .padding(12)
-
+                        .padding(.leading, 12)
+                        .padding(.trailing, 12)
                     if let secondaryButtonTitle = secondaryButtonTitle, let secondaryButtonAction = secondaryButtonAction {
-                        SouhoolaButton(title: secondaryButtonTitle, style: .secondary, isDisabled: false, font: SouhoolaTypography.light, action: secondaryButtonAction)
-                        .padding(.all, 12)
+                        SouhoolaButton(title: secondaryButtonTitle, style: .secondary, isDisabled: false, font: SouhoolaTypography.body, action: secondaryButtonAction)
+                            .padding(.leading, 12)
+                            .padding(.trailing, 12)
+                            .padding(.bottom, 12)
                     }
                 }
+                .padding()
                 .frame(maxWidth: .infinity)
                 .background(Color.white)
                 .cornerRadius(16)
@@ -104,7 +107,7 @@ public struct SouhoolaAlert: View {
         secondaryButtonAction: {},
         dismissOnBackgroundTap: true,
         onDismiss: {},
-        image: Image(systemName: "exclamationmark.circle.fill")
+        image: Image(.warning)
     )
 }
 
@@ -118,7 +121,7 @@ public struct SouhoolaAlert: View {
         secondaryButtonAction: {},
         dismissOnBackgroundTap: true,
         onDismiss: {},
-        image: Image(systemName: "trash.fill")
+        image: Image(.delete)
     )
 }
 
@@ -130,7 +133,7 @@ public struct SouhoolaAlert: View {
         primaryButtonAction: {},
         dismissOnBackgroundTap: true,
         onDismiss: {},
-        image: Image(systemName: "checkmark.circle.fill")
+        image: Image(.success)
     )
 }
 
